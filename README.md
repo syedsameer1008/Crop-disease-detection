@@ -1,154 +1,155 @@
-# 📘 Capstone Project – Student Query Classification System
-
-**Author:** Syed Sameer
-**File:** `capestone_project_91.ipynb`
-
----
+# 🌿 Plant Disease Classification using CNN
 
 ## 📌 Project Overview
 
-This capstone project builds a **Machine Learning-based Student Query Classification System** that automatically predicts the **priority level** of student queries (High, Medium, Low).
+This project focuses on building a **Convolutional Neural Network (CNN)** model to classify plant leaf diseases using image data from the **PlantVillage dataset**. The model is implemented using **TensorFlow (Keras API)** and trained to recognize multiple disease categories from plant leaf images.
 
-The objective is to help academic institutions **identify urgent issues quickly**, streamline response management, and improve overall efficiency in handling student concerns.
-
----
-
-## 🎯 Problem Statement
-
-Universities receive large volumes of student queries daily across multiple departments. Manually reviewing and prioritizing these queries is time-consuming and inefficient.
-
-This project solves the problem by:
-
-* Applying **Natural Language Processing (NLP)**
-* Training a **classification model**
-* Automatically predicting query priority levels
+The objective of this project is to develop an automated system that can assist farmers and agricultural experts in early disease detection using deep learning techniques.
 
 ---
 
-## 📂 Dataset Description
+## 🚀 Features
 
-The dataset used in this project contains:
-
-* `Query_ID` – Unique identifier
-* `Department` – Department handling the query
-* `Query Text` – Student's query message
-* `Priority_Label` – Target variable (High / Medium / Low)
-
----
-
-## 🔎 Exploratory Data Analysis (EDA)
-
-The notebook performs detailed data exploration including:
-
-### 📊 Distribution Analysis
-
-* Department-wise query distribution
-* Priority label frequency
-
-### 🔁 Relationship Analysis
-
-* Department vs Priority comparison
-* Cross-tabulation and pivot tables
-
-### ☁️ Text Visualization
-
-* WordCloud of most frequent terms
-* Common patterns in student queries
-
-These analyses help understand data imbalance and query trends.
-
----
-
-## 🧹 Data Preprocessing
-
-Text preprocessing steps include:
-
-* Converting text to lowercase
-* Removing punctuation and special characters
-* Removing stopwords
-* Tokenization
-* Cleaning non-alphabetic characters
-
-These steps improve model accuracy by reducing noise in textual data.
-
----
-
-## ⚙️ Feature Engineering
-
-The textual data is converted into numerical format using:
-
-* **TF-IDF Vectorization**
-
-This transforms text into weighted features suitable for machine learning models.
-
----
-
-## 🤖 Model Development
-
-The workflow includes:
-
-1. Train-Test Split
-2. Model Training
-3. Prediction
-4. Model Evaluation
-
-Evaluation metrics used:
-
-* Accuracy Score
-* Confusion Matrix
-* Classification Report
-
-The trained model predicts whether a query is:
-
-* 🔴 High Priority
-* 🟡 Medium Priority
-* 🟢 Low Priority
-
----
-
-## 📊 Results & Insights
-
-The model successfully classifies student queries into priority levels, helping institutions:
-
-* Reduce response delay
-* Improve ticket resolution efficiency
-* Allocate departmental workload effectively
+* Image preprocessing and augmentation
+* CNN-based deep learning model
+* Multi-class disease classification
+* Training and validation split
+* Performance visualization using accuracy and loss graphs
 
 ---
 
 ## 🛠️ Technologies Used
 
-* Python
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
-* Scikit-learn
-* NLP Techniques
-* WordCloud
+* **Python**
+* **TensorFlow / Keras** – Deep Learning framework
+* **OpenCV** – Image processing
+* **scikit-learn** – Dataset splitting and preprocessing utilities
+* NumPy & Matplotlib – Numerical operations and visualization
 
 ---
 
-## ▶️ How to Run
+## 📂 Dataset
 
-1. Open `capestone_project_91.ipynb` in Jupyter Notebook.
-2. Install required libraries if not available.
-3. Update dataset path if necessary.
-4. Run all cells sequentially.
+The dataset used in this project is the **PlantVillage dataset**, which contains labeled images of healthy and diseased plant leaves.
+
+### Dataset Structure:
+
+```
+dataset/
+│
+└── plantvillage/
+    ├── class_1/
+    ├── class_2/
+    ├── ...
+```
+
+Each folder represents a disease class.
 
 ---
 
-## 🚀 Future Enhancements
+## 🧠 Model Architecture
 
-* Deploy model using Flask / FastAPI
-* Integrate with a real-time student helpdesk system
-* Apply Deep Learning models (LSTM / Transformers)
-* Handle class imbalance using advanced resampling techniques
+The CNN model consists of:
+
+* Convolutional layers (Conv2D)
+* MaxPooling layers
+* Flatten layer
+* Fully connected (Dense) layers
+* Dropout layer (for regularization)
+* Softmax activation (for multi-class classification)
+
+### Input Configuration:
+
+* Image Size: **224 × 224**
+* Batch Size: **32**
+* Epochs: **10**
+* Loss Function: `categorical_crossentropy`
+* Optimizer: `adam`
 
 ---
 
-## 📌 Conclusion
+## 🔄 Data Preprocessing
 
-This capstone project demonstrates the practical application of **Machine Learning and NLP** in automating student query prioritization.
+The project uses `ImageDataGenerator` for:
 
-It combines structured data analysis, text processing, and classification modeling to deliver a scalable and impactful solution for academic institutions.
+* Rescaling pixel values
+* Rotation
+* Horizontal flipping
+* Zoom augmentation
+* Training-validation splitting
+
+This helps improve model generalization and prevent overfitting.
+
+---
+
+## ▶️ How to Run the Project
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone <repository-url>
+cd <project-folder>
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+pip install tensorflow numpy matplotlib opencv-python scikit-learn
+```
+
+### 3️⃣ Update Dataset Path
+
+Modify the dataset directory in the notebook:
+
+```python
+DATA_DIR = 'dataset/plantvillage/'
+```
+
+### 4️⃣ Run the Notebook
+
+Open the Jupyter Notebook:
+
+```bash
+jupyter notebook capestone_project_91.ipynb
+```
+
+Run all cells to train and evaluate the model.
+
+---
+
+## 📊 Output
+
+* Training Accuracy
+* Validation Accuracy
+* Training Loss
+* Validation Loss
+* Disease class predictions
+
+Graphs are plotted using Matplotlib to visualize model performance.
+
+---
+
+## 🎯 Applications
+
+* Smart agriculture systems
+* Automated crop monitoring
+* Mobile-based plant disease detection
+* Precision farming solutions
+
+---
+
+## 🔮 Future Improvements
+
+* Increase dataset size for better accuracy
+* Implement Transfer Learning (e.g., pre-trained models)
+* Deploy as a web or mobile application
+* Integrate real-time camera-based detection
+* Improve model tuning and hyperparameter optimization
+
+---
+
+## 👨‍💻 Author
+
+Developed as part of a Capstone Project on Deep Learning for Agricultural Image Classification.
+
+---
